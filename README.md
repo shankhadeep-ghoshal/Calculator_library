@@ -4,7 +4,7 @@
 
 ## Intro
 
-C++ program that parses **Infix Notation** (usual mathematical expressions) to **Reverse Polish Notation** (Postfix notation).  
+C++ program that parses **Infix Notation** (usual mathematical expressions) to **Reverse Polish Notation** (Postfix notation) and then evaluates it.
 
 ### Examples of Infix Conversion to Postfix  
 
@@ -26,7 +26,6 @@ C++ program that parses **Infix Notation** (usual mathematical expressions) to *
 - _Power (denoted by the symbol  **^**)_
 - _Modulus_   
 
-  
 
 ## Usage
 
