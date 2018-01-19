@@ -247,3 +247,12 @@ std::string InfixCalculator::evalPostix()
 	this->answer = (this->infix == "" || this->infix.empty()) ? "no input provided" : std::to_string(numStack.top());
 	return this->answer;
 }
+
+JNIEXPORT jstring JNICALL Java_JniAttempt_11_119_12018_InfixToPostfixTesterJni_getPostfix
+(JNIEnv * env, jobject obj, jstring str) {
+	const char* inf = env->GetStringUTFChars(str, 0);
+	std::string myString(inf);
+	jstring tempStr = env->NewStringUTF(InfixCalculator(myString).evalPostix().c_str());
+	env->ReleaseStringUTFChars(str, inf);
+	return tempStr;
+}

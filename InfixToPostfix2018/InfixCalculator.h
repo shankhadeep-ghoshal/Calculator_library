@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "JniAttempt_1_19_2018_InfixToPostfixTesterJni.h"
 class InfixCalculator
 {
 private:
