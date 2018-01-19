@@ -66,23 +66,32 @@ double InfixCalculator::mod(double a, double b)
 	return ((int)a%(int) b) + 0.0;
 }
 
-
 void InfixCalculator::toTokenList()
 {
 	for (int i = 0; i < this->infix.length(); i++) {
 		int k2 = i - 1;
 		int k3 = i + 1;
-		if (this->infix[i] == ' ')continue;
 		if (this->infix[i] == '-') {
-			if (k2 >= 0 && (this->infix[k2] == '(' || this->infix[k2] == '-' || isOperator(std::string(1, this->infix[k2])))) {
+			if (k2 >= 0 && (this->infix[k2] == '(' || this->infix[k2] == '-')) {
 				this->parser.push_back(std::string(1, '0'));
 				this->parser.push_back(std::string(1, this->infix[i]));
+			}
+			else if (isOperator(std::string(1, this->infix[k2]))) {
+				this->parser.push_back(std::string(1, '('));
+				this->parser.push_back(std::string(1, '0'));
+				this->parser.push_back(std::string(1, '-'));
+				std::string oper = "";
+				while (isOperand(std::string(1, infix[i+1]))) {
+					oper += infix[i+1];
+					i++;
+				}
+				this->parser.push_back(oper);
+				this->parser.push_back(std::string(1, ')'));
 			}
 			else if (this->infix[0] == '-' && this->parser.size() == 0) {
 				this->parser.insert(this->parser.begin(), "0");
 				this->parser.push_back(std::string(1, this->infix[i]));
 			}
-			//else if(k2>=0 )
 			else this->parser.push_back(std::string(1, this->infix[i]));
 		}
 		else if (this->infix[i] == '(' && k2>=0 && isOperand(std::string(1, this->infix[k2]))) {
@@ -99,7 +108,7 @@ void InfixCalculator::toTokenList()
 				oper += this->infix[i];
 				i++;
 			}
-			parser.push_back(oper);
+			this->parser.push_back(oper);
 			i--;
 		}
 		else {
