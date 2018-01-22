@@ -42,7 +42,16 @@ C++ program that parses **Infix Notation** (usual mathematical expressions) to *
 
 ## Bugs 
 
-- Trigonometric values of negative numbers are not properly evaluated (that's what I think).
+- Trigonometric values of negative numbers are not properly evaluated (that's what I think).  
 
+## Additional Note
+The code doesn't cover all the edge cases and it for the one using this library to find out what edge cases are missing.  
+
+
+
+## Acknowledgements  
+- Sergei Lebedev (Data Structures and Algorithms lab in-charge)
+- [Introduction to Alorithms, CLRS , MIT Press](https://mitpress.mit.edu/books/introduction-algorithms)
+- Heineken Lager Beer
 
 
